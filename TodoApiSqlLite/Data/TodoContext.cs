@@ -15,5 +15,41 @@ namespace TodoApiSqlLite.Data
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TodoItem>().HasData(
+                new TodoItem
+                {
+                    Id = 1,
+                    Name = "Write Backend",
+                    IsComplete = true
+                },
+                new TodoItem
+                {
+                    Id = 2,
+                    Name = "Write Xamarin app",
+                    IsComplete = false
+                },
+                new TodoItem
+                {
+                    Id = 3,
+                    Name = "Unit Testing",
+                    IsComplete = false
+                },
+                new TodoItem
+                {
+                    Id = 4,
+                    Name = "Prepare demo",
+                    IsComplete = false
+                },
+                new TodoItem
+                {
+                    Id = 5,
+                    Name = "Study for examination",
+                    IsComplete = false
+                }
+            );
+        }
     }
 }

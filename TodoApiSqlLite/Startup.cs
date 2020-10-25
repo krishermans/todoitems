@@ -22,7 +22,8 @@ namespace TodoApiSqlLite
         {
             services.AddDbContext<TodoContext>(options =>
             {
-                options.UseSqlite("Data Source=TodoDB.db");
+                options.UseSqlite(Configuration.GetConnectionString("ToDoItemsConnex"))
+                       .EnableSensitiveDataLogging();
             });
             services.AddControllers();
         }

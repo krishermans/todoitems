@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TodoApiSqlLite.Models;
 
 namespace TodoApiSqlLite.Data
@@ -12,6 +8,8 @@ namespace TodoApiSqlLite.Data
         public TodoContext(DbContextOptions<TodoContext> options)
             : base(options)
         {
+            // cfr: https://app.pluralsight.com/course-player?clipId=9973f0a0-a9d6-476b-83d9-26c751e7a1c7
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
